@@ -2,3 +2,6 @@ spring:
   application:
     name:
       esb-service
+
+server:
+   port: ${PORT:8080}
