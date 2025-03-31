@@ -39,7 +39,7 @@ public class ESBController {
 
         // Enviar la petición correctamente con Content-Type JSON
         String response = webClient.post()
-                .uri("http://user-service:3000/api/users")
+                .uri("/")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .bodyValue(user)
                 .retrieve()
@@ -60,7 +60,7 @@ public class ESBController {
 
         // Realizar la petición GET con el token
         String response = webClient.get()
-                .uri("http://user-service:3000/api/users/all")
+                .uri("/all")
                 .header(HttpHeaders.AUTHORIZATION, token)
                 .retrieve()
                 .bodyToMono(String.class)
@@ -83,7 +83,7 @@ public class ESBController {
 
         // Realizar la petición PUT con el token
         String response = webClient.put()
-                .uri("http://user-service:3000/api/users/" + id)
+                .uri("/" + id)
                 .header(HttpHeaders.AUTHORIZATION, token)
                 .bodyValue(user)
                 .retrieve()
@@ -106,7 +106,7 @@ public class ESBController {
 
         // Realizar la petición PATCH con el token
         String response = webClient.patch()
-                .uri("http://user-service:3000/api/users/" + id)
+                .uri("/" + id) // localhost:4000
                 .header(HttpHeaders.AUTHORIZATION, token)
                 .retrieve()
                 .bodyToMono(String.class)
