@@ -55,7 +55,7 @@ public class ESBController {
         
         return executeWithRetry(
             () -> webClient.post()
-                .uri("/api/users/login")
+                .uri("/login")
                 .bodyValue(user),
             MAX_RETRIES
         );
