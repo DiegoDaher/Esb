@@ -21,9 +21,9 @@ import com.utd.it.soa.esb_service.utils.Auth;
 @RequestMapping("/api/v1/esb")
 public class ESBController {
 
-    // Correcta inicialización de WebClient
-    private final WebClient webClient = WebClient.create();
-    private final Auth auth = new Auth();
+     // Correcta inicialización de WebClient
+        private final WebClient webClient = WebClient.create("http://usuarios-production-bfec.up.railway.app/api/users");
+        private final Auth auth = new Auth();
 
     @PostMapping("/user")
     public ResponseEntity<String> createUser(@RequestBody User user,
