@@ -48,6 +48,18 @@ public class ESBController {
 
         return ResponseEntity.ok(response);
     }
+     
+     @PostMapping("/user/login")
+    public ResponseEntity<String> login(@RequestBody User user) {
+        log.info("Intento de login para usuario: {}", user.getUsername());
+        
+        return executeWithRetry(
+            () -> webClient.post()
+                .uri("/api/users/login")
+                .bodyValue(user),
+            MAX_RETRIES
+        );
+    }
 
     // Conseguir todos los usuarios (GET)
     @GetMapping("/user/all")
